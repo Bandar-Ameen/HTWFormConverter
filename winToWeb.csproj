@@ -1,0 +1,567 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{109EFBF0-31E8-4854-86AA-FE28D9045C4F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>winToWeb</RootNamespace>
+    <AssemblyName>winToWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ERP.Repository">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Progress\Telerik UI for WinForms R2 2020\Examples\ERP\ERP.Client\bin\ERP.Repository.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.11.6.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.11.6\lib\Net45\HtmlAgilityPack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Progress\Telerik UI for WinForms R2 2020\Examples\ERP\Binaries\Microsoft.Data.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Progress\Telerik UI for WinForms R2 2020\Examples\ERP\Binaries\Microsoft.Data.Services.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\windowsapitest\windowsapitest\bin\Debug\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="RadControlSpy, Version=2020.2.512.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Progress\Telerik UI for WinForms R2 2020\Bin\RadControlSpy.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\..\windowsapitest\windowsapitest\bin\Debug\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telerik.WinControls, Version=2020.2.512.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
+    <Reference Include="Telerik.WinControls.GridView, Version=2020.2.512.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.PdfViewer, Version=2020.2.512.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.RadMap, Version=2020.2.512.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Progress\Telerik UI for WinForms R2 2020\Bin\Telerik.WinControls.RadMap.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.RichTextEditor, Version=2020.2.512.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.CrystalDark, Version=2020.2.512.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.Office2013Light, Version=2020.2.512.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.VisualStudio2012Dark, Version=2020.2.512.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.VisualStudio2012Light, Version=2020.2.512.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.UI, Version=2020.2.512.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Documents.Core, Version=2020.2.504.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7" />
+    <Reference Include="Telerik.Windows.Documents.Fixed, Version=2020.2.504.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7" />
+    <Reference Include="TelerikCommon, Version=2020.2.512.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
+    <Reference Include="UserControlInHtmll">
+      <HintPath>..\..\UserControlInHtmll\UserControlInHtmll\bin\Debug\UserControlInHtmll.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="Winforms.Plugins.Shared">
+      <HintPath>..\..\..\..\Winforms.Plugins\Winforms.Plugins\Winforms.Plugins.Host\bin\Debug\Winforms.Plugins.Shared.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="anoth\BusinessObjectAsync.cs" />
+    <Compile Include="anoth\BusinessObjectAsyncExplicit.cs" />
+    <Compile Include="anoth\BusinessObjectComponent.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="anoth\BusinessObjectSync.cs" />
+    <Compile Include="anoth\BusinessObjectSyncSimple.cs" />
+    <Compile Include="anoth\Customer.cs" />
+    <Compile Include="contentAlertMessaage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="contentAlertMessaage.Designer.cs">
+      <DependentUpon>contentAlertMessaage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="control\AsyncClientTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="control\Asynchronzier.cs" />
+    <Compile Include="control\BaseGridControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="control\BaseGridControl.designer.cs">
+      <DependentUpon>BaseGridControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="control\BjSJsonConverter.cs" />
+    <Compile Include="control\BjSJsonObject.cs" />
+    <Compile Include="control\CacheClass.cs" />
+    <Compile Include="control\customefinal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="control\customefinal.Designer.cs">
+      <DependentUpon>customefinal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="control\customeint.cs" />
+    <Compile Include="control\cutest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="control\cutest.Designer.cs">
+      <DependentUpon>cutest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="control\downloadFile.cs" />
+    <Compile Include="control\dynim.cs" />
+    <Compile Include="control\entery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="control\entery.Designer.cs">
+      <DependentUpon>entery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="control\ERPDataDialog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="control\ERPDataDialog.Designer.cs">
+      <DependentUpon>ERPDataDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="control\ERPDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="control\ERPDataForm.designer.cs">
+      <DependentUpon>ERPDataForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="control\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="control\Form1.designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="control\groupbox.cs" />
+    <Compile Include="control\OnReciveForm.cs" />
+    <Compile Include="control\Person.cs" />
+    <Compile Include="control\SendFromWindowsToWeb.cs" />
+    <Compile Include="control\showmessa.cs" />
+    <Compile Include="control\tess.cs" />
+    <Compile Include="control\UserControl1f.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="control\UserControl1f.Designer.cs">
+      <DependentUpon>UserControl1f.cs</DependentUpon>
+    </Compile>
+    <Compile Include="control\Valdation.cs" />
+    <Compile Include="control\webproser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="control\webproser.Designer.cs">
+      <DependentUpon>webproser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="customalrtDalog.cs" />
+    <Compile Include="CustomWeb.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EventFromWeb.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form3.Designer.cs">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form4.Designer.cs">
+      <DependentUpon>Form4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="htmldemo\Bridge.cs" />
+    <Compile Include="htmldemo\ColorPicker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="htmldemo\ColorPicker.designer.cs">
+      <DependentUpon>ColorPicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="htmldemo\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="htmldemo\MainForm.designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="htmldemo\SampleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="htmldemo\SampleForm.designer.cs">
+      <DependentUpon>SampleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="htmldemo\SyntaxHilight.cs" />
+    <Compile Include="html\CssAnonymousBlockBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="html\CssAnonymousBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="html\CssBlock.cs" />
+    <Compile Include="html\CssBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="html\CssBoxWord.cs" />
+    <Compile Include="html\CssBoxWordSplitter.cs" />
+    <Compile Include="html\CssConstants.cs" />
+    <Compile Include="html\CssDefaults.cs" />
+    <Compile Include="html\CssDrawingHelper.cs" />
+    <Compile Include="html\CssLayoutEngine.cs" />
+    <Compile Include="html\CssLength.cs" />
+    <Compile Include="html\CssLineBox.cs" />
+    <Compile Include="html\CssPropertyAttribute.cs" />
+    <Compile Include="html\CssPropertyInheritedAttribute.cs" />
+    <Compile Include="html\CssRectangle.cs" />
+    <Compile Include="html\CssTable.cs" />
+    <Compile Include="html\CssValue.cs" />
+    <Compile Include="html\dynFormLib.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="html\dynWebControls.cs" />
+    <Compile Include="html\dynWindowControls.cs" />
+    <Compile Include="html\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="html\Form1.designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="html\HtmlConstants.cs" />
+    <Compile Include="html\HtmlLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="html\HtmlPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="html\HtmlParser.cs" />
+    <Compile Include="html\HtmlRenderer.cs" />
+    <Compile Include="html\HtmlTag.cs" />
+    <Compile Include="html\HtmlToolTip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="html\IDynControl.cs" />
+    <Compile Include="html\InitialContainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="html\mcon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="html\Parser.cs" />
+    <Compile Include="html\Popup.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="html\Radcon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="html\Radconverttojson.cs" />
+    <Compile Include="html\testForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="html\testForm.Designer.cs">
+      <DependentUpon>testForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="html\toControl\CssAnonymousBlockBoxControl.cs" />
+    <Compile Include="html\toControl\CssAnonymousBoxControl.cs" />
+    <Compile Include="html\toControl\CssBoxControl.cs" />
+    <Compile Include="html\toControl\CssBoxWordSplitterControl.cs" />
+    <Compile Include="html\toControl\CssLayoutEngineControl.cs" />
+    <Compile Include="html\toControl\CssLineBoxControl.cs" />
+    <Compile Include="html\toControl\CssTableControl.cs" />
+    <Compile Include="html\toControl\HtmlPanelControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="html\toControl\InitialContainerControl.cs" />
+    <Compile Include="html\toControl\mecon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="html\toControl\mecon.Designer.cs">
+      <DependentUpon>mecon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="html\toControl\tocontr.cs" />
+    <Compile Include="html\TreeviewPersist_json.cs" />
+    <Compile Include="jsScripting.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="protouse\AttributeProcessor.cs" />
+    <Compile Include="protouse\ButtonParser.cs" />
+    <Compile Include="protouse\Function.cs" />
+    <Compile Include="protouse\Proteus.cs" />
+    <Compile Include="protouse\ProteusBuilder.cs" />
+    <Compile Include="protouse\ProteusButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="protouse\ProteusView.cs" />
+    <Compile Include="protouse\ProtuseCheckBox.cs" />
+    <Compile Include="protouse\Value.cs" />
+    <Compile Include="protouse\ViewTypeParser.cs" />
+    <Compile Include="showmessage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="showmessage.Designer.cs">
+      <DependentUpon>showmessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="som\ComboBindingList.cs" />
+    <Compile Include="som\ComboHelper.cs" />
+    <Compile Include="som\ControlModel.cs" />
+    <Compile Include="som\ControlThread1.cs" />
+    <Compile Include="som\formains.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="som\formains.Designer.cs">
+      <DependentUpon>formains.cs</DependentUpon>
+    </Compile>
+    <Compile Include="som\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="som\MainForm.designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="som\TaskExtensions.cs" />
+    <EmbeddedResource Include="anoth\BusinessObjectComponent.resx">
+      <DependentUpon>BusinessObjectComponent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="contentAlertMessaage.resx">
+      <DependentUpon>contentAlertMessaage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\AsyncClientTest.resx">
+      <DependentUpon>AsyncClientTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\BaseGridControl.resx">
+      <DependentUpon>BaseGridControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\customefinal.resx">
+      <DependentUpon>customefinal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\cutest.resx">
+      <DependentUpon>cutest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\entery.resx">
+      <DependentUpon>entery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\ERPDataDialog.resx">
+      <DependentUpon>ERPDataDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\ERPDataForm.resx">
+      <DependentUpon>ERPDataForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\UserControl1f.resx">
+      <DependentUpon>UserControl1f.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\webproser.resx">
+      <DependentUpon>webproser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form3.resx">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form4.resx">
+      <DependentUpon>Form4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="htmldemo\ColorPicker.resx">
+      <DependentUpon>ColorPicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="htmldemo\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="htmldemo\SampleForm.resx">
+      <DependentUpon>SampleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="html\dynFormLib.resx">
+      <DependentUpon>dynFormLib.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="html\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="html\testForm.resx">
+      <DependentUpon>testForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="html\toControl\mecon.resx">
+      <DependentUpon>mecon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="showmessage.resx">
+      <DependentUpon>showmessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="som\formains.resx">
+      <DependentUpon>formains.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="som\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comment16.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete16.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete32.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exclamation32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favorites32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\font32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\formula32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\method16.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paly32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\property16.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\property32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refreshdocument32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\web_pallete.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Window.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button-round-arrow-left-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button-round-arrow-right-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button-round-cancel-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button-round-fast-backward-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button-round-fast-forward-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button-round-plus-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button-round-reload-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\confirmm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Text-Edit-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\floppy-save-icon %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete-32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Information-32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\success-48018.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error-2-36058.wav" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
