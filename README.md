@@ -13,6 +13,10 @@ AdminLTE
 
 newtensoft.json
 
+ # require
+ Win 64x
+Enable ControlX from IE
+ 
 #### Example
 ```c#
 ﻿using Newtonsoft.Json;
