@@ -1,0 +1,1145 @@
+ <!DOCTYPE html>
+        <!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+        <html lang="en">
+
+            <head>
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+                <title>AdminLTE 3 | Starter</title>
+
+                <!-- Google Font: Source Sans Pro -->
+                <link rel="stylesheet"
+                    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+                <!-- Font Awesome Icons -->
+                <link rel="stylesheet" href="plugins/fontawesome-free/css/all.css">
+                <!-- Theme style -->
+                <link rel="stylesheet" href="dist/css/adminlte.min.css">
+
+                <link href="plugins/kendo.default-main-darkk.min.css" rel="stylesheet" />
+                <link rel="stylesheet" href="plugins/toastr/toastr.min.css">
+                <!-- Theme style -->
+                <link rel="stylesheet" href="dist/css/adminlte.min.css">
+                <script src="plugins/jquery-1.12.44.min.js"></script>
+
+                <script src="plugins/kendo.allk.min.js"></script>
+
+                <style>
+                    .sc {
+                        scrollbar-face-color: #646464;
+                        scrollbar-base-color: #646464;
+                        scrollbar-3dlight-color: #646464;
+                        scrollbar-highlight-color: #646464;
+                        scrollbar-track-color: #000;
+                        scrollbar-arrow-color: #646464;
+                        scrollbar-shadow-color: #646464;
+                        scrollbar-dark-shadow-color: #646464;
+                    }
+
+                    #windoesContiner.windowshow {
+                        max-height: 100%;
+                        max-width: 100%;
+                        display: inline;
+                    }
+
+                    #windoesContiner.windowhidden {
+                        max-height: 0;
+                        max-width: 0;
+                        display: none;
+                    }
+
+                    #webContiner.webshow {
+
+                        display: block;
+                        height: 500;
+                    }
+
+                    #webContiner.webhidden {
+
+                        display: none;
+                    }
+                </style>
+            </head>
+
+            <body class="k-content hold-transition sidebar-mini-xs layout-fixed sc">
+	<button  onClick="chh()">gggggggggback</Button>
+  <div id="taskBoard"></div>
+	<script>
+       function chh(){
+ var tt = JSON.stringify({ "formname": "hh", "tyeForm": "5" });
+        // addm();
+        var t = JSON.stringify({ "Name_Form": tt, "Event_Type": "Go_Back" });
+        window.external.sendEvent(t.toString());
+                }
+                
+      var cardsData = [
+        { id: 1, title: "Campaigns", order: 1, description: "Create a new landing page for campaign", status: "todo", color: "orange" },
+        { id: 2, title: "Newsletters", order: 2, description: "Send newsletter", status: "todo", color: "blue" },
+        { id: 3, title: "Ads Analytics", order: 3, description: "Review ads performance", status: "todo", color: "green" },
+        { id: 4, title: "SEO Analytics", order: 4, description: "Review SEO results", status: "inProgress", color: "blue" },
+        { id: 5, title: "Customer Research", order: 5, description: "Interview focus groups", status: "inProgress", color: "orange" },
+        { id: 6, title: "Testimonials & Case Studies", order: 6, description: "Publish new case study", status: "done", color: "green" },
+        { id: 7, title: "Content", order: 7, description: "Plan content for podcasts", status: "done", color: "green" },
+        { id: 8, title: "Customer Journey", order: 8, description: "Update virtual classrooms' experience", status: "done", color: "blue" },
+      ];
+
+      $("#taskBoard").kendoTaskBoard({
+        columns: [
+          { text: "To-Do", status: "todo" },
+          { text: "In Progress", status: "inProgress" },
+          { text: "Done", status: "done" }
+        ],
+        dataSource: {
+          transport: {
+            read: function(options){
+              options.success(cardsData);
+            },
+            update: function(options){
+              options.success(options.data);
+            },
+            create: function(options){
+              options.success($.extend({}, options.data, {
+                id: getUniqueId()
+              }));
+            },
+            destroy: function(options){
+              options.success();
+            },
+          },
+          schema: {
+            model: {
+              id: "id",
+              fields: {
+                id: { type: "number" },
+                order: { type: "number", defaultValue: 0 },
+                title: { field: "title", defaultValue: "No title" },
+                description: { field: "description", validation: { required: true } },
+              }
+            }
+          }
+        },
+        dataStatusField: "status",
+        dataOrderField: "order",
+        dataCategoryField: "color",
+        height: 750,
+        resources: [
+          {
+            field: "color",
+            dataSource: [
+              { value: "orange", color: "#ffa500" },
+              { value: "green", color: "#008000" },
+              { value: "blue", color: "#0000ff" }
+            ]
+          }
+        ]
+      });
+
+      function getUniqueId() {
+        var taskboard = $("#taskBoard").data("kendoTaskBoard");
+        // return next unique id
+        return taskboard.dataSource.total() + 1;
+      }
+    </script>
+	<script id="template" type="text/x-kendo-template">
+  		
+      
+      
+      <div class="cards-container"style="padding:20px 20px 20px 20px;"   >
+        <div class="k-card k-card-horizontal"     >
+            	<form method="POST">
+            <div class="k-vbox k-column">
+                <div class="k-card-body">
+                    <h5 class="k-card-title">بيانات المستخدمين</h5>
+              
+
+<div class="row">
+  <label  style="margin:5px 5px 5px 5px; "   class="k-Label">المعرف &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+<span class="k-textbox k-input k-rounded-md" style="width:auto; "> 
+
+<input name="user_ida"  data-bind="value: screen_id"  id="textboixa" data-role="textbox" class="k-input-inner" placeholder="المعرف"> 
+
+
+
+</span>
+</div>
+
+
+<div class="row" style="margin-top:10px;"   >
+  <label style="margin:5px 5px 5px 5px; "  class="Label">الاسم الأول </label>
+<span    class="k-textbox k-input k-rounded-md" style="width:auto;"> 
+
+         
+<input required   name="firstnamea" id="textboxva"   data-bind="value: screen_name" data-role="textbox" class="k-input-inner" placeholder="الاسم الاول">
+ </span>
+ </div>
+
+
+<div class="row" style="margin-top:10px;"   >
+  <label   style="margin:5px 5px 5px 5px; " class="Label">الاسم الثاني </label>
+<span    class="k-textbox k-input k-rounded-md" style="width:auto;"> 
+
+      <input   name="lastnamea" id="textboxxa" data-role="textbox" class="k-input-inner" placeholder="الاسم الثاني"> 
+  
+
+ </span>
+ </div>
+
+<div class="row" style="margin-top:10px;"   >
+  <label style="margin:5px 5px 5px 5px; "   class="Label">الاسم الثاني </label>
+<span    class="k-textbox k-input k-rounded-md" style="width:auto;"> 
+
+   <input  name="addressa"textboxm" data-role="textbox" class="k-input-inner" placeholder="العنوان"> 
+
+
+ </span>
+ </div>
+
+
+
+   </div>
+             
+            </div>
+
+
+<br>
+<div class="container" style="margin :5px 5px 5px 5px; "> 
+
+
+	</div>
+			
+</form>
+        
+
+         
+        
+    
+</div> 
+</div>
+      
+    </script>
+    <script type="text/x-kendo-template" id="windowTemplate">
+    <p> Delete <strong>#= ProductName #</strong> ? </p>
+    <p> We have #= UnitsInStock # units in stock. </p>
+    <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base" id="yesButton"><span class="k-button-text">Yes</span></button>
+    <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base" id="noButton"><span class="k-button-text">No</span></button>
+</script>
+    
+    <script type="text/x-kendo-template" id="windowTemplatek">
+    <p> Delete <strong>#= ProductName #</strong> ? </p>
+    <p> We have #= UnitsInStock # units in stock. </p>
+    <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base" id="yesButton"><span class="k-button-text">Yes</span></button>
+    <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base" id="noButton"><span class="k-button-text">No</span></button>
+</script>
+    <script id="leadFieldsTemplate" type="text/x-kendo-template">
+    	<input type="text" data-bind="value: test"/>
+      
+    </script>
+	<button id="refreshk" class="k-button">Refreshx</button>
+   
+    <div id="grid"></div>
+ <input id="dropdownlist" />   
+<div id="gridd"></div>
+<div id="gridx"></div>
+<div id="dialog"></div>
+<div id="dialogg">
+    </div>
+
+<div id="window"></div>
+    <script>
+    	
+  function  getaces(){
+var d="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8wLjAuMC4wOjgwODBcL2FwaVwvIiwiYXVkIjoiaHR0cDpcL1wvMC4wLjAuMDo4MDgwXC9hcGlcLyIsImlhdCI6MTcwODQ3NTk2NywiZXhwIjoxNzA4NDc5NTY3LCJkYXRhIjp7InVzZXJfaWQiOiIzNCJ9LCJyZWZzaF90b2tlbiI6IjZCYU85b005dkZkOE1TSFpBMHZ2b1FuejN0eUhHayJ9.FQ_jHMp72LnX8lFPXJKVd8-KjNfOeUIokEXFn30E4iY";
+return d;
+}
+    function customEditor1(container, options) {
+          $('<input type="checkbox" name="' + options.field + '"/>')
+            .appendTo(container)
+            .kendoSwitch({
+            onLabel: "YES",
+            offLabel: "NO"
+          });
+        }	
+    
+    function check_Json(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
+}	
+    
+    
+function  getdat(e,type,typecurd){
+var nab="screensetting.php";
+if(type==2){
+nab="registerscreen.php";
+}
+if(type==3){
+nab="rollsetting.php";
+}
+if(type==4){
+nab="rollregister.php";
+//alert("gggggg");
+}
+
+$.ajax({
+         url: 'http://192.168.1.100:8080/api/'+nab, // <-- point to server-side PHP script 
+        dataType: 'text',  // <-- what to expect back from the PHP script, if anything
+        cache: false,
+        
+        processData: false,
+        
+          crossDomain: true,
+                                
+        type: 'post',
+        contentType:'json',
+        
+        
+        beforeSend: function (xhr) {
+    	var rrr=getaces();//"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8wLjAuMC4wOjgwODBcL2FwaVwvIiwiYXVkIjoiaHR0cDpcL1wvMC4wLjAuMDo4MDgwXC9hcGlcLyIsImlhdCI6MTcwNTk2Njk5NywiZXhwIjoxNzA1OTcwNTk3LCJkYXRhIjp7InVzZXJfaWQiOiIzNCJ9LCJyZWZzaF90b2tlbiI6InQ0MHpiVXYxd1I0b2hhcTkyUXRmblNucHpJeTUwWSJ9.5oqpHnImzXVEcNNOiJWD7XaQl7sSNTge9e6tRi7ItmA";
+    
+    
+// alert(rrr);
+//xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded; charset=UTF-8");
+    xhr.setRequestHeader ("Authorization", "Bearer " + rrr);
+if(type==2){
+xhr.setRequestHeader("screen_id",btoa(unescape(encodeURIComponent(e.data.models[0].screen_id))));
+xhr.setRequestHeader("screen_name",btoa(unescape(encodeURIComponent(e.data.models[0].screen_name))));
+xhr.setRequestHeader("screen_enb",btoa(unescape(encodeURIComponent(0))));
+xhr.setRequestHeader("typcurd", btoa(unescape(encodeURIComponent(typecurd))));
+}
+if(type==3){
+xhr.setRequestHeader("typgetdata",typecurd);
+}
+if(type==4){
+	alert();
+	var iddsc=e.screen_id;
+	if(iddsc==null){
+iddsc=e.screen_id.screen_id;
+}
+var pper=e.tb_def_permation_id;
+if(pper==null){
+pper=e.tb_def_permation_id.tb_def_permation_id;
+}
+	xhr.setRequestHeader("roll_id",e.roll_id);
+	xhr.setRequestHeader("screen_id",iddsc);
+	xhr.setRequestHeader("per_id",pper);
+	var g=e.roll_enb;
+	var en=0;
+if(g==true){
+en=1;
+}
+xhr.setRequestHeader("roll_enb",en);
+xhr.setRequestHeader("typcurd",typecurd);
+
+//tb_def_permation_id
+}
+
+},
+        success: function(php_script_response){
+      if(type==4){
+ 
+//alert(php_script_response);
+// alert("xxx");
+ var ffdd=JSON.parse(php_script_response);	
+//JSON.stringify(nnj)
+alert(JSON.stringify(ffdd));
+}
+   if(check_Json(php_script_response)){
+var ffdd=JSON.parse(php_script_response);
+if(ffdd.success=='25'){
+	//alert("سيتم انشاء اكسس توكن جديد");
+	
+//bookname.val(ffdd.token); 
+//eeraseCookie("tokken");
+//eraseCookie("username");
+//wwriteCookiee("tokken",ffdd.token,20);
+//wwriteCookiee("username",ffdd.username,20);
+//var rrr=getCookiee("tokken");
+//let screen_namee = $("input[name*='screen_name']");//$("firstname']");
+//screen_namee.val(rrr);
+//loader(1);
+//jsFunctionn(ddref); 
+} else {
+//eraseCookie("tokken");
+if(ffdd.success=='1'){
+if(type==0){
+	var nnj=ffdd.data;
+e.success(nnj);
+}else  if(type==3){
+	var nnj=ffdd.data;
+e.success(nnj);
+}
+else  if(type==4){
+	var nnj=ffdd.data;
+	alert(JSON.stringify(nnj));
+	$("#gridd").data("kendoGrid").dataSource.read();
+//e.success(nnj);
+}
+
+else
+
+{
+e.success();
+//var grid = $("#grid").data("kendoGrid");
+  if(type!=3){
+$("#grid").data("kendoGrid").dataSource.read();
+  }
+//e.read();
+}
+//jsFunctionn(nnj);
+
+}
+}
+
+}else
+
+{
+	//msggv('error',php_script_response);
+//alert(php_script_response);
+}
+
+ // <-- display response from the PHP script, if any
+        },
+        error: function( jqXhr, textStatus, errorThrownm){
+        alert(JSON.stringify(jqXhr));
+ //  alert(errorThrown+' hhhhh'); // <-- display response from the PHP script, if any
+        }
+     });
+
+}
+
+$(document).ready(function () {
+  dataSourcea = new kendo.data.DataSource({
+                    transport: {
+                        read: function (e) {
+	
+	getdat(e,3,0);
+
+ },
+                        update: function (e) {
+                            getdat(e,3,0);
+                            
+                            
+                      },
+                        destroy: function (e) {
+                            
+                       
+                            getdat(e,3,0);
+                            
+                        },
+                        create: function (e) {
+             
+getdat(e,3,0);
+
+
+
+   },
+                        parameterMap: function (options, operation) {
+                            if (operation !== "read" && options.models) {
+                                return { models: kendo.stringify(options.models) };
+                            }
+                        }
+                    },
+                    batch: true,
+                    pageSize: 20,
+                    
+                    schema: {
+                        model: {
+                            id: "roll_id",
+                            fields: {
+                            	roll_id: { editable: false, nullable: true },
+                                tb_def_permation_id: { editable: false, nullable: true },
+                                tb_def_permation_name: { editable: false, nullable: true },
+                              
+
+ idscreen: { editable: true, nullable: true },
+                               screen_name: { editable: false, nullable: true },
+                               per_id: { editable: false, nullable: true },
+                               roll_enb: { editable: false, nullable: true }
+
+                               }
+                               } 
+                    }
+                });
+                
+               dataSourceRoll = new kendo.data.DataSource({
+                    transport: {
+                        read: function (e) {
+	
+	getdat(e,3,2);
+
+ },
+                        update: function (e) {
+                            getdat(e,3,2);
+                            
+                            
+                      },
+                        destroy: function (e) {
+                            
+                       
+                            getdat(e,3,2);
+                            
+                        },
+                        create: function (e) {
+             
+getdat(e,3,2);
+
+
+
+   },
+                        parameterMap: function (options, operation) {
+                            if (operation !== "read" && options.models) {
+                                return { models: kendo.stringify(options.models) };
+                            }
+                        }
+                    },
+                    batch: true,
+                    pageSize: 20,
+                    
+                    schema: {
+                        model: {
+                            id: "tb_def_permation_id",
+                            fields: {
+                            	tb_def_permation_id: { editable: false, nullable: true },
+                                tb_def_permation_name: { editable: false, nullable: true },
+ 
+                               tb_def_permation_enb: { editable: false, nullable: true }
+
+                               }
+                               } 
+                    }
+                }); 
+
+
+
+
+
+
+var  dataSource = new kendo.data.DataSource({
+                    transport: {
+                      read: function (e) {
+	
+	getdat(e,0,0);
+
+ },
+                        update: function (e) {
+                            getdat(e,2,2);
+                            
+                            
+                      },
+                        destroy: function (e) {
+                            
+                       
+                            getdat(e,2,3);
+                            
+                        },
+                        create: function (e) {
+             
+getdat(e,2,1);
+
+
+
+   },
+                        parameterMap: function(options, operation) {
+                            if (operation !== "read" && options.models) {
+                                return {models: kendo.stringify(options.models)};
+                            }
+                        }
+                    },
+                    
+                    batch: true,
+                    pageSize: 20,
+                    schema: {
+                        model: {
+                            id: "screen_id",
+                            fields: {
+                                screen_id: { editable: true, nullable: true },
+                                screen_name: { validation: { required: true } },
+                                
+                                screen_enb: { type: "boolean" }
+                                
+                            }
+                            
+                            
+                        }
+                    }
+                });
+               $("#grid").on("click", ".customEdit", function(){
+        var row = $(this).closest("tr");
+        $("#grid").data("kendoGrid").editRow(row);
+      });
+
+$("#gridd").on("click", ".customEditx", function(){
+        var row = $(this).closest("tr");
+    var grid = $('#gridd').data('kendoGrid');
+              //    console.log(grid.dataItem(row));
+                  var dataItem = grid.dataItem(row);
+var f="التفاصيل";
+ showDalo(dataItem,f,1);
+//  alert(JSON.stringify(dataItem));
+
+ //$("#grid").data("kendoGrid").editRow(row);
+      });
+
+      $("#grid").on("click", ".customDelete", function(){
+        var row = $(this).closest("tr");
+        $("#grid").data("kendoGrid").removeRow(row);
+      }); 
+                
+var windowss = $("#window").kendoWindow({
+            title: "Are you sure you want to delete this recordddddddd?",
+            visible: false, //the window will not appear before its .open method is called
+            width: "400px",
+            height: "200px",
+        }).data("kendoWindow");
+            $("#grid").kendoGrid({
+            	   
+                dataSource: dataSource,
+                
+                pageable: { alwaysVisible: false, pageSizes: [5, 110, 20, 20] ,
+refresh: true,
+        messages: {
+          refresh: "Refresh the grid"
+        }
+},
+                sortable: true,
+                navigatable: true,
+                resizable: true,
+                
+                reorderable: true,
+                groupable: true,
+                filterable: true,
+                height: 500,
+                
+            pageSize: 5,   
+                
+                messages: {
+                submit: "Custom Submit Button Text",
+                clear: "Custom Clear Button Text"
+            },
+                toolbar: ["create"],
+                columns: [
+                    { field: "screen_id", title: "المعرف",width: "200px" , headerAttributes: { "class": "k-text-center !k-justify-content-center" }, attributes: { style: "text-align: center" }},
+                    { field: "screen_name", title: "إسم الشاشة", width: "200px" ,  headerAttributes: { "class": "k-text-center !k-justify-content-center" }, attributes: { style: "text-align: center" }},
+                            
+                    { field: "screen_enb", title:"حالة التوقيف",  width: "120px", template: "<input class='customClass' #if (screen_enb==1) { # checked='checked' # } # type='checkbox' disabled />",editor: customEditor1,headerAttributes: { "class": "k-text-center !k-justify-content-center" }, attributes: { style: "text-align: center" } },
+                     { template: "<button class='k-button k-button-md k-rounded-md k-button-solid k-button-solid-base customEdit'><span class='k-button-text'>Edit</span></button>", title:"Edit",width:65,headerAttributes: { "class": "k-text-center !k-justify-content-center" }, attributes: { style: "text-align: center" }},
+            { template: "<button class='k-button k-button-md k-rounded-md k-button-solid k-button-solid-base customDelete'><span class='k-button-text'>Delete</span></button>", title:"Delete",
+width:65,headerAttributes: { "class": "k-text-center !k-justify-content-center" }, attributes: { style: "text-align: center" }},
+                    
+                ],
+                dataBound: function() {
+            this.tbody.find(".customClass").kendoSwitch({
+              onLabel: "YES",
+              offLabel: "NO"
+            });
+            },
+                editable: {mode: "popup",
+window: {
+            title: "تعديل",
+            animation: false,
+            clear: "Custom Clear Button Text"
+            //open: myOpenEventHandler
+          },
+ template: kendo.template($("#template").html())}
+              
+                
+            });
+            
+            $("#dropdownlist").kendoDropDownList({
+      dataTextField: "screen_name",
+        dataValueField: "screen_id",
+dataSource: dataSource,
+      animation: false
+    });
+      loader(0);      
+      function  hel(){
+alert("hhhh");
+}
+        
+
+
+  
+        function myOpenEventHandler(e) {
+        var confirm =   window.confirm('Do you want to edit this record?');
+        if(!confirm){
+          e.preventDefault()
+        }
+      }
+        $("#refresh").click(function(){
+        	
+    $("#grid").data("kendoGrid").dataSource.create();
+    
+    });
+   /* function getAllMethods(object) {
+    return Object.getOwnPropertyNames(object).filter(function(property) {
+        return typeof object[property] == 'function';
+    });
+}
+
+function getMethods(o) {
+  return Object.getOwnPropertyNames(Object.getPrototypeOf(o))
+    .filter(m => 'function' === typeof o[m])
+}
+    */
+    
+  function clientCategoryEditor(container, options) {
+     
+   $('<input required name="idscreen">')
+                .appendTo(container)
+                .kendoDropDownList({
+                    autoBind: false,
+                    dataTextField: "screen_name",
+        dataValueField: "screen_name",
+dataSource: dataSource,
+      animation: false
+                });
+        }
+    var categories = [{
+            "screen_id": 1,
+            "screen_name": "Beverages"
+        }, {
+            "screen_id": 2,
+            "screen_name": "Condiments"
+        }]
+     
+    
+    function ashowDetails(e){
+alert("gggg");
+
+}
+    
+    	
+    
+    function loader(ddef){
+    //	alert("ggg");
+//(".grid-editv").bind('click', function () {alert("ddddd");});
+$("#gridd").kendoGrid({
+                dataSource: dataSourcea,
+              
+
+        
+                
+                
+pageable: { alwaysVisible: false, pageSizes: [5, 10, 20, 100] },
+                sortable: true,
+                navigatable: true,
+           editable: true,  
+   resizable: true,
+                reorderable: true,
+                groupable: true,
+                filterable: true,
+                height: 500,
+            pageSize: 5,   
+                messages: {
+    commands: {
+      search: "بحث"
+    }
+  },
+toolbar: [
+{name:"updatev6",template: "<button  type='button'  onclick='loader(1)' class='btn btn-primary llu15' name='newwua'  ><span class='   k-icon k-i-refresh'></span onclick='showDetails'></a></button>"
+},
+
+{
+	name:"search"
+}
+
+
+],
+                
+                columns: [
+                { field: "roll_id", title: "المعرف",width: "200px"  },
+                    { field: "tb_def_permation_id", title: "tالمعرف",width: "200px"  },
+                    { field: "tb_def_permation_name", title: "شاشة الصلاحية", width: "200px" },
+                    { field: "idscreen", title: "vvvمعرف الشاشة",width: "200px", 
+
+editor: clientCategoryEditor },
+       
+ { field:"screen_name",title: "إسم الشاشة", width: "200px"  },
+               { field: "per_id", title: "معرف الصلاحية",width: "200px"  },
+   { field: "roll_enb", title:"حالة التوقيف",  width: "120px", template: "<input class='customClass' #if (roll_enb==1) { # checked='checked' # } # type='checkbox' disabled />",editor: customEditor1 },
+   
+                     
+          { template: "<button class='k-button k-button-md k-rounded-md k-button-solid k-button-solid-base customEditx'><span class='k-button-text'>Edit</span></button>", title:"Edit",width:65,headerAttributes: { "class": "k-text-center !k-justify-content-center" }, attributes: { style: "text-align: center" }}
+
+
+  ]
+
+                ,dataBound: function() {
+            this.tbody.find(".customClass").kendoSwitch({
+              onLabel: "YES",
+              offLabel: "NO"
+            });
+            }
+            });
+        
+
+	}	
+	$("#dialog").kendoDialog({
+      title: "Kendo Dialog Component",
+      content: "<div><form id='myForm'></form>",
+      visible: false,
+      modal: {
+          preventScroll: true
+      }
+    });
+    $("#button").kendoButton({
+        iconClass: "fa fa-male",
+        click: function(e) {
+       var dialog = $("#dialog").data("kendoDialog");       
+var form = $("#myForm").getKendoForm();
+//form.su;
+//form.validate();
+//dialog.close();
+ //alert(getMethods(form));
+            }
+    });
+    function showDalo(e,tit,ty){
+    var dialog = $("#dialog").data("kendoDialog");
+dialog.title(tit);
+dialog.toFront();
+//var y=dialog.wrapperTemplate;
+var scna=1;
+var per=1;
+var idro=0;
+var boo=false;
+if(ty==1){
+scna=e.idscreen;
+per=e.tb_def_permation_id;
+idro=e.roll_id;
+
+if(e.roll_enb=="1"){
+boo=true;
+}
+if(e.roll_enb=="true"){
+boo=true;
+}
+if(e.roll_enb=="True"){
+boo=true;
+}
+}
+var form = $("#myForm").getKendoForm();
+//form.clear();
+//form.editable.options.model.set("FirstName",e.screen_name);
+form.editable.options.model.set("screen_id",scna);
+form.editable.options.model.set("tb_def_permation_id",per);
+form.editable.options.model.set("roll_id",idro);
+
+
+
+form.editable.options.model.set("roll_enb",boo);
+
+
+//tb_def_permation_id
+//var h=form.flattenFields;
+//alert(h);
+
+
+  dialog.open();
+  }
+      $("#refreshk").click(function(){
+        	
+    var f="إضافة";
+ showDalo(f,f,0);
+    
+    });
+	$("#gridx").kendoGrid({
+        columns: [ "name", {
+          field: "employed",
+          filterable:{
+            cell:{
+              template:function(args){
+                args.element.kendoDropDownList({
+                  dataSource: [{ value: true, text: "True" }, { value: false, text: "False" }],
+                  optionLabel: "--Select--",
+                  dataTextField: "text",
+                  dataValueField: "value"
+                });
+              }
+            }
+          }
+        }],
+        filterable: { mode: "row"},
+        dataSource: {
+          data:[{ name: "John Doe" , employed: true }, { name: "Jane Doe", employed: true }, { name: "Tim Doe", employed: false} ],
+          schema:{
+            model:{
+              fields:{
+                employed: { type: "boolean" }
+              }
+            }
+          }
+        }
+      });
+      $("#myForm").kendoForm({
+                formData: {
+                    FirstName: "",
+                    LastName: "",
+                    Email: "",
+                    Password: "",
+                    Birth: new Date(),
+                    Agree: false
+                },
+                
+                buttonsTemplate: "<button type='submit' id='fffd' class='k-button k-button-md k-rounded-md k-button-solid k-button-solid-base customEdit'><span class='k-button-text'>حفظ</span></button> <button type='button' id='fffbd' class='k-button k-button-md k-rounded-md k-button-solid k-button-solid-base customEdit'><span class='k-button-text'>جديد</span></button>",
+              	layout: "grid",
+                grid: {
+                    cols: 1,
+                    gutter: 20
+                },
+                items: [
+                    {
+                        type: "group",
+                        label: "معلومات الشاشات",
+                        layout: "grid",
+                      	grid: { cols: 5, gutter: 10 },                      	
+                        items: [
+                            { 
+                                field: "roll_id", 
+                                label: "الرقم", 
+                                readonly: true,
+                                colSpan: 1,
+                                Status: { type: "string", editable: false },
+                                validation: { required: false ,readonly: true} 
+                            },
+                          {
+                        field: "screen_id", editor: "ComboBox", label: "الشاشة:", validation: { required: false},
+ colSpan: 4    ,                
+  editorOptions: {
+                            placeholder: "Select Screen",
+                            dataTextField: "screen_name",
+                            dataValueField: "screen_id",
+                            filter: "contains",
+                            dataSource: dataSource
+                        }
+                    },
+{field: "tb_def_permation_id", editor: "ComboBox", label: "نوع الصلاحية:", validation: { required: false },
+    colSpan: 4    ,                                 
+   editorOptions: {
+                            placeholder: "Select Permation",
+                            dataTextField: "tb_def_permation_name",
+                            dataValueField: "tb_def_permation_id",
+                            filter: "contains",
+                            dataSource: dataSourceRoll
+                        }
+                    },
+  {
+                        field: "roll_enb",
+                        editor: "Switch",
+                        label: "الحالة:",
+                        colSpan: 1   ,                
+                        validation: { required: false }
+                    },
+                            
+                            
+                            {
+                       field: "Description",
+                label: "الوصف:",
+                editor: "TextArea",
+                colSpan: 5   ,      
+                
+                editorOptions: { rows: 3,
+                            placeholder: "وصف الشاشة"}
+                }
+                            
+                            
+                        ]
+                    },
+                    
+                    { 
+                        field: "Agree", 
+                        label: "موافق علي الشروط", 
+                        validation: { required: false } 
+                    }
+                ],
+                
+                clear: function(ev) {
+              var d = $("#dialog").data("kendoDialog");
+              d.close();
+            },
+                submit: function(e) {
+            e.preventDefault();
+                    
+      // send ajax request
+      var model = e.model;
+   //alert(JSON.stringify(model));
+if(model.roll_id==0){
+getdat(model,4,1);
+}else{
+getdat(model,4,2);
+}
+   
+     // console.log(model);
+
+},
+ messages: {
+                submit: "حفظ",
+                clear: "إلغاء"
+            }
+            });
+      
+	
+	
+    });   
+    </script>
+    
+
+
+
+                  <script src="plugins/jquery/jquery.min.js"></script>
+                <!-- Bootstrap 4 -->
+                <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+                <!-- AdminLTE App -->
+                <script src="dist/js/adminlte.min.js"></script>
+                <link href="plugins/kendo.default-main-darkk.min.css" rel="stylesheet" />
+                <script src="plugins/jquery-1.12.44.min.js"></script>
+
+                <script src="plugins/kendo.allk.min.js"></script>
+
+
+                <script for="myComComponent" event="MyFirstEvent(args)" language="javascript">
+                    function myComComponent:: MyFirstEvent(args) {
+                        appendText("myComComponent raised MyFirstEvent. args: ");
+                        appendText(args);
+                        appendText("\r\n");
+                    }
+                </script>
+                <script>
+                    $.support.cors = true;
+                </script>
+                <script src="main/my.js"></script>
+                <script>
+
+                    function setsource(contein, scr, type, msrc, attir) {
+                        // alert("hhhhh");
+                        //alert(JSON.stringify(attir));
+                        var uipp = document.getElementById(contein);
+
+                        var smy = document.createTextNode(scr);
+                        var vm = document.createElement(type);
+                        if (msrc == "0") {
+                            vm.appendChild(smy);
+                            try {
+                                if (attir != "[]") {
+                                    var iu = JSON.parse(attir);
+
+                                    iu.forEach(function (element) {
+                                        vm.setAttribute(element.key, element.value);
+                                    });
+                                }
+                            } catch (ee) {
+
+                                alert("fffffff");
+                            }
+
+                            uipp.appendChild(vm);
+                            // alert(scr);
+                        } else {
+                            try {
+                                if (attir != "[]") {
+                                    var iu = JSON.parse(attir);
+                                    iu.forEach(function (element) {
+                                        vm.setAttribute(element.key, element.value);
+                                    });
+                                }
+                            } catch (ee) {
+                                alert("fffffffvvvvv");
+                                //alert(ee.message);
+                            }
+                            //  vm.setAttribute('src',scr);
+                            uipp.appendChild(vm);
+
+                        }
+
+
+
+                    }
+                    /*
+        var getscri= window.external.getHtmlDec('\\main\\scrip.txt');
+        //alert(getscri);
+        const v= document.createElement('script');
+        var k=getscri;
+        
+         var sm=   document.createTextNode(k);
+         v.appendChild(sm);
+           // alert(k);
+        //v.innerText=k;
+        // v.async=true;
+        document.head.appendChild(v);*/
+                </script>
+
+
+                <script src="plugins/sweetalert2/sweetalert2.min.js"></script>
+                <!-- Toastr -->
+                <script src="plugins/toastr/toastr.min.js"></script>
+                <!-- AdminLTE App -->
+
+                <!-- AdminLTE for demo purposes -->
+                <script src="dist/js/demo.js"></script>
+
+                <script type="text/javascript">
+
+
+                    $(function () {
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000
+                        });
+
+                        $('.swalDefaultSuccess').click(function () {
+                            Toast.fire({
+                                type: 'success',
+                                title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+                            })
+                        });
+                        $('.swalDefaultInfo').click(function () {
+                            Toast.fire({
+                                type: 'info',
+                                title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+                            })
+                        });
+                        $('.swalDefaultError').click(function () {
+                            Toast.fire({
+                                type: 'error',
+                                title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+                            })
+                        });
+                        $('.swalDefaultWarning').click(function () {
+                            Toast.fire({
+                                type: 'warning',
+                                title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+                            })
+                        });
+                        $('.swalDefaultQuestion').click(function () {
+                            Toast.fire({
+                                type: 'question',
+                                title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+                            })
+                        });
+
+                        $('.toastrDefaultSuccess').click(function () {
+                            toastr.success('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+                        });
+                        $('.toastrDefaultInfo').click(function () {
+                            toastr.info('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+                        });
+                        $('.toastrDefaultError').click(function () {
+                            toastr.error('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+                        });
+                        $('.toastrDefaultWarning').click(function () {
+                            toastr.warning('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+                        });
+                    });
+
+                </script>
+</body>
+</html>
